@@ -1,0 +1,70 @@
+name: New Feature
+description: Document a planned new feature
+title: "[Feature]: "
+labels: [enhancement]
+assignees: []
+
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Feature
+      description: What user task is supported by this feature?
+      placeholder: e.g. "I want to log in with GitHub to access protected functionality."
+    validations:
+      required: true
+  - type: dropdown
+    id: user
+    attributes:
+      label: User
+      description: Select a persona for this feature (https://github.com/AgilianX/.github/blob/main/docs/personas.md)
+      multiple: true
+      options:
+        - Guest
+        - Member
+        - Admin
+    validations:
+      required: true
+
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: Why is this important, what business goal is supported?
+      placeholder: e.g. "Increase security and user access control"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe the feature.
+      placeholder: Planned implementation, design, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define clear pass/fail criteria
+    validations:
+      required: true
+
+  - type: textarea
+    id: enhancements
+    attributes:
+      label: Potential enhancements, follow-up, or alternatives
+      description: (Optional) Other ideas
+    validations:
+      required: false
+  - type: checkboxes
+    id: contributing
+    attributes:
+      label: Contributing Guidelines
+      description: By submitting this issue, you agree to follow our [Contributing Guidelines](https://github.com/AgilianX/.github/blob/main/CONTRIBUTING.md).
+      options:
+        - label: I have read and agree to the Contributing Guidelines
+          required: true
