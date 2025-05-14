@@ -2,7 +2,6 @@ name: New Feature
 description: Document a planned new feature
 title: "[Feature]: "
 labels: [enhancement]
-assignees: []
 
 body:
   - type: textarea
@@ -13,6 +12,7 @@ body:
       placeholder: e.g. "I want to log in with GitHub to access protected functionality."
     validations:
       required: true
+
   - type: dropdown
     id: user
     attributes:
@@ -25,7 +25,6 @@ body:
         - Admin
     validations:
       required: true
-
 
   - type: textarea
     id: goal
