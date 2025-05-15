@@ -3,6 +3,3 @@ contact_links:
   - name: Organization Documentation
     url: https://github.com/AgilianX/.github/blob/main/README.md
     about: Please check our organization documentation before creating an issue.
-  - name: Repository-Specific Documentation
-    url: ../../../README.md
-    about: Check your repository documentation for project-specific guidance.
