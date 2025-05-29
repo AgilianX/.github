@@ -1,4 +1,6 @@
 [submodule ".agx"]
 	path = .agx
 	url = https://github.com/AgilianX/.agx.git
-	branch = master
+	track = master
+	useHooks = true
+	useAliases = true

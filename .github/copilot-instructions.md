@@ -1,31 +1,36 @@
-# Copilot Instructions
+# General
 
-## Repository
+- Always use `;` to separate terminal commands, not `&&`.
 
-Owner: AgilianX
-Repository: .github
+---
 
-## IMPORTANT
-- When following a prompt that specifies a git command with the `agx-*` or `agx-ai-*` prefix, run it EXACTLY as described,
-  it is a PRECONFIGURED alias. Never modify it, never add arguments to it.
-  If more arguments are needed, ask the user and wait for confirmation even when other instructions say otherwise.
-- If GPG Signing fails, do not attempt to fix it automatically. Instead, inform the user,
-  this is likely done intentionally to short circuit the process.
-- Never `push` or `pull` without user confirmation.
-  Always ask the user for confirmation before executing these commands.
+## Workflows and prompts
 
-## Git
-- Always use `git agx-ai-commit` instead of `git commit` for commits made by AI.
-  A draft of the commit message must be generated before running the command.
-- Follow the [Commit Specification](../.agx/docs/conventions/Commits.md) for commit messages.
-- When starting a workflow, check the location of the terminal.
-  When running ai workflows on submodules, ensure you are in the correct submodule directory.
-  - At the start of a workflow targeting a submodule, `cd` into the submodule directory once.
-  - Run all subsequent commands in that workflow from the current directory without additional `cd`.
-  - Only `cd` again when returning to the workflow root or changing context.
+Prompts and workflows descibe their type in their header.
+
+### Git
+
+- When the `git` workflow type is explicitly specified (- Workflow type: `git`)
+  1. Display in the chat an informational message about the current step in the workflow.
+  2. Do not wait for user confirmation unless the step explicitly requires it.
+  3. Follow the instructions in [prepare.prompt.md](../.agx/ai-prompts/git/tasks/prepare.prompt.md)
+     before starting the tasks.
+- When working with commit messages(e.g. commit, merge, release, etc.)
+  after analysis is complete, follow the instructions in [issue-corelation.prompt.md](../.agx/ai-prompts/git/tasks/issue-corelation.prompt.md).
+- For any git command with the `agx-*` or `agx-ai-*` prefix, run it exactly as written.
+  These are preconfigured aliases. Do not modify or add arguments!
+  If additional arguments are needed, ask the user for confirmation before proceeding.
+- If GPG signing fails, do not attempt to fix it automatically. Inform the user, as this may be intentional.
+- Never perform `push` or `pull` operations without explicit user confirmation.
+- Use `git agx-ai-commit` (not `git commit`) for AI-generated commits.
+  Always generate a draft commit message before running the command.
+
+---
 
 ## Documentation
+
 - Use emojis sparingly and only when appropriate.
 - Avoid HTML in markdown files.
-- All Documentation files except conventions must include a footer with the following information:
-  - Related source files (if applicable)
+- All documentation files (except conventions) must include a footer with:
+  - Related source files (if applicable), using actual Markdown links.
+  - Do not include this information in commit or merge messages.
